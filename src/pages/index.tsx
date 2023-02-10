@@ -4,7 +4,8 @@ import reactLogo from "../assets/react.svg";
 import { useNavigate } from "react-router-dom";
 
 import "../App.css";
-import { useState } from "react";
+import { useReducer } from "react";
+import { initialState, loadingReducer } from "../reducer/loadingReducer";
 
 type CreateIDType = {
   id: string;
@@ -14,15 +15,22 @@ export const Home = () => {
   const navigate = useNavigate()
   const id = uuid();
 
+  const [{ IsError, IsLoading }, dispatch] = useReducer(loadingReducer, initialState)
+
   const createNewId = async () => {
+    dispatch({ type: "start" })
+
     try {
+
       const response = await api.post<CreateIDType>("/create", { id });
       const data = response.data
 
-      navigate(`/todo/${data.id}`)
+      dispatch({ type: "success" })
 
-    } catch (error) {
-      console.log(error)
+      navigate(`/todo/${data.id}`)
+    } catch (er) {
+      console.log(er)
+      dispatch({ type: "error" })
     }
   }
   return (
@@ -41,10 +49,10 @@ export const Home = () => {
           <button
             onClick={createNewId}
           >
-            teste
+            {IsLoading ? "carregando" : "aqui"}
           </button>
           <p>
-            Edit <code>src/App.tsx</code> and save to test HMR
+            {IsError && "algo deu errado, recarregue a página e tente novamente"}
           </p>
         </div>
         <p className="read-the-docs">
