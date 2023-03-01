@@ -3,7 +3,6 @@ import { api } from "../api/axios";
 import reactLogo from "../assets/react.svg";
 import { useNavigate } from "react-router-dom";
 
-import "../App.css";
 import { useReducer } from "react";
 import { initialState, loadingReducer } from "../reducer/loadingReducer";
 
@@ -21,8 +20,7 @@ export const Home = () => {
     dispatch({ type: "start" })
 
     try {
-
-      const response = await api.post<CreateIDType>("/create", { id });
+      const response = await api.post<CreateIDType>("/CreateUser", { id });
       const data = response.data
 
       dispatch({ type: "success" })

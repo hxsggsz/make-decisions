@@ -12,18 +12,27 @@ export const Todo = () => {
   const navigate = useNavigate()
 
   const { data } = useQuery<GetTodosType>('getTodo', async () => {
-    const response = await api.get(`/${id}`)
+    const response = await api.get(`GetUser/${id}`)
 
-    if (!data?.id) {
-      navigate('/notFound')
-    }
     return response.data
   })
 
+  if (!data?.id) {
+    navigate('/notFound')
+  }
+
+  async function createTodo() {
+    const response = await api.post(`/createOption/${id}`, { options: "dwadwdawdd" });
+    const data = response.data
+
+    console.log(data, "dwaawd")
+  }
 
   return (
     <>
       <h1>{id}</h1>
+
+      <button onClick={() => createTodo()}>teste</button>
     </>
   )
 }
