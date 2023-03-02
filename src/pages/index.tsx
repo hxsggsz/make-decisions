@@ -1,10 +1,12 @@
 import uuid from "react-uuid"
 import { api } from "../api/axios";
-import reactLogo from "../assets/react.svg";
 import { useNavigate } from "react-router-dom";
-
 import { useReducer } from "react";
 import { initialState, loadingReducer } from "../reducer/loadingReducer";
+import { Navbar } from "../components/navbar/navbar";
+import { Slider } from "../components/slider/slider";
+import { Button } from "../components/button/button";
+import MainPage from "../container/MainPage/MainPage";
 
 type CreateIDType = {
   id: string;
@@ -33,30 +35,8 @@ export const Home = () => {
   }
   return (
     <>
-      <div className="App">
-        <div>
-          <a href="https://vitejs.dev" target="_blank">
-            <img src="/vite.svg" className="logo" alt="Vite logo" />
-          </a>
-          <a href="https://reactjs.org" target="_blank">
-            <img src={reactLogo} className="logo react" alt="React logo" />
-          </a>
-        </div>
-        <h1>Vite + React</h1>
-        <div className="card">
-          <button
-            onClick={createNewId}
-          >
-            {IsLoading ? "carregando" : "aqui"}
-          </button>
-          <p>
-            {IsError && "algo deu errado, recarregue a página e tente novamente"}
-          </p>
-        </div>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
-      </div>
+      <Navbar />
+      <MainPage />
     </>
   )
 }
