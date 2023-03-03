@@ -1,18 +1,21 @@
 import styled from "styled-components";
 
-type StyledButtonProps = {
-  desktop: boolean | undefined;
-};
-
-export const StyledButton = styled.button<StyledButtonProps>`
+export const StyledButton = styled.button`
   cursor: pointer;
   background: ${({ theme }) => theme.Background};
-  width: ${({ desktop }) => (desktop ? "30vw" : "90vw")};
+  width: 30vw;
   border-radius: 2.4rem;
   color: ${({ theme }) => theme.Text};
   border: 0.4rem solid ${({ theme }) => theme.Text};
   border-bottom: 1rem solid ${({ theme }) => theme.Text};
   padding: 0.7rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 90vw;
+  }
 
   &:hover {
     transform: translateY(-0.4rem);

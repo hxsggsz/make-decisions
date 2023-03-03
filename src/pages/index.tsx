@@ -6,7 +6,7 @@ import { initialState, loadingReducer } from "../reducer/loadingReducer";
 import { Navbar } from "../components/navbar/navbar";
 import { Slider } from "../components/slider/slider";
 import { Button } from "../components/button/button";
-import MainPage from "../container/MainPage/MainPage";
+import MainPage from "../container/main-page/MainPage";
 
 type CreateIDType = {
   id: string;

@@ -19,4 +19,7 @@ export const HeadingStyles = styled.h1<HeadingStylesTypes>`
   font-size: ${({ size }) => handleSize(size)};
   color: ${({ theme }) => theme.Text};
   padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

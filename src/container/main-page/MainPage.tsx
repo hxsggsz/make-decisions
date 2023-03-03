@@ -1,4 +1,3 @@
-import React from "react"
 import { Button } from "../../components/button/button"
 import { Slider } from "../../components/slider/slider"
 import { StyledIndex } from "."
@@ -10,7 +9,7 @@ function MainPage() {
     <StyledIndex>
       <div className="mobile">
         <Slider />
-        <Button text="Vamos lá" />
+        <Button>Vamos lá</Button>
       </div>
 
       <div className="desktop">
@@ -20,7 +19,7 @@ function MainPage() {
 
           <Heading size="sm">Liste todas as opções e mande para os seus amigos votarem.</Heading>
 
-          <Button text="Vamos lá" desktop={true} />
+          <Button>Vamos lá</Button>
 
         </div>
         <img src={image} width={500} height={450} />

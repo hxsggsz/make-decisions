@@ -1,13 +1,13 @@
+import { ReactNode } from "react";
 import { StyledButton } from "."
 import { Heading } from "../heading/heading"
 
 type ButtonTypes = {
-  text: string;
-  desktop?: boolean;
+  children: ReactNode;
 }
 
-export const Button = ({ text, desktop }: ButtonTypes) => {
+export const Button = ({ children }: ButtonTypes) => {
   return (
-    <StyledButton desktop={desktop}><Heading size="md">{text}</Heading></StyledButton>
+    <StyledButton><Heading size="md">{children}</Heading></StyledButton>
   )
 }
