@@ -12,8 +12,8 @@ export const GlobalStyles = createGlobalStyle<{ theme: DefaulTheme }>`
   }
 
   body {
-    width: 100%;
-    min-height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     overflow-x: hidden;
     font-family: 'Inter', sans-serif;

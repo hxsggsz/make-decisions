@@ -22,13 +22,9 @@ export const StyledSlider = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 90vw;
+    min-width: 90vw;
     border-radius: 2rem;
     border: 4px solid ${({ theme }) => theme.Text};
     border-bottom: 8px solid ${({ theme }) => theme.Text};
-
-    @media (max-width: 420px) {
-      max-width: 100vw;
-    }
   }
 `;

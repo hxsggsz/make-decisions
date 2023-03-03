@@ -1,8 +1,13 @@
 import { StyledButton } from "."
 import { Heading } from "../heading/heading"
 
-export const Button = () => {
+type ButtonTypes = {
+  text: string;
+  desktop?: boolean;
+}
+
+export const Button = ({ text, desktop }: ButtonTypes) => {
   return (
-    <StyledButton><Heading size="md">Vamos lá</Heading></StyledButton>
+    <StyledButton desktop={desktop}><Heading size="md">{text}</Heading></StyledButton>
   )
 }

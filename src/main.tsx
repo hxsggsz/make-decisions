@@ -1,20 +1,19 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import { QueryClientProvider, QueryClient } from 'react-query'
-import { GlobalStyles } from './styles/globals'
-import { ThemeProvider } from 'styled-components'
-import { Dark } from './styles/themes/themes'
+import App from "./App";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { GlobalStyles } from "./styles/globals";
+import { ThemesProvider } from "./context/themeContext";
+import { QueryClientProvider, QueryClient } from "react-query";
 
 const queryClient = new QueryClient()
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={Dark}>
+      <ThemesProvider>
         <App />
         <GlobalStyles />
-      </ThemeProvider>
+      </ThemesProvider>
     </QueryClientProvider>
   </React.StrictMode>,
 )

@@ -5,11 +5,6 @@ type NavStylestypes = {
 };
 
 export const StyledNavbar = styled.div<NavStylestypes>`
-  border: 10px solid red;
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-
   & > div {
     width: 100vw;
     position: fixed;
@@ -17,10 +12,12 @@ export const StyledNavbar = styled.div<NavStylestypes>`
     left: -1.7rem;
     margin-left: 1.2rem;
     display: flex;
+    z-index: 9;
     align-items: center;
     justify-content: space-between;
     border-radius: 1.6rem;
     background: ${({ theme }) => theme.Background};
+    border-bottom: 0.4rem solid ${({ theme }) => theme.Text};
   }
 
   nav {
@@ -31,12 +28,12 @@ export const StyledNavbar = styled.div<NavStylestypes>`
     width: 41vw;
     position: absolute;
     transition: left 0.5s ease-in-out;
-    left: ${({ isShowMenu }) => (isShowMenu ? 0 : "-4000px")};
+    left: ${({ isShowMenu }) => (isShowMenu ? 0 : "-600px")};
     top: 0;
     display: flex;
     overflow: hidden;
 
-    @media (max-width: 487px) {
+    @media (max-width: 500px) {
       width: 70vw;
     }
 
@@ -90,13 +87,46 @@ export const StyledNavbar = styled.div<NavStylestypes>`
     height: 0.5rem;
     width: 30rem;
     position: absolute;
-    left: -20rem;
+    left: -15rem;
+    margin-top: 0.5rem;
     background: ${({ theme }) => theme.Text};
     transform: scaleX(0);
-    transition: transform 0.5s ease-in-out;
+    transition: transform 1s ease-in-out;
   }
 
   li:hover::after {
-    transform: scaleX(1);
+    transform: scaleX(10);
+  }
+
+  button {
+    all: unset;
+  }
+
+  .SwitchRoot {
+    width: 5rem;
+    height: 3rem;
+    background: ${({ theme }) => theme.Background};
+    border: 0.3rem solid ${({ theme }) => theme.Text};
+    border-radius: 9999px;
+    position: relative;
+  }
+
+  .SwitchRoot[data-state="checked"] {
+    background: ${({ theme }) => theme.Text};
+  }
+
+  .SwitchThumb {
+    display: block;
+    width: 2.1rem;
+    height: 2.1rem;
+    background: ${({ theme }) => theme.Text};
+    border-radius: 9999px;
+    transition: transform 100ms;
+    transform: translateX(0.2rem);
+    will-change: transform;
+  }
+  .SwitchThumb[data-state="checked"] {
+    background: #fff;
+    transform: translateX(2.8rem);
   }
 `;

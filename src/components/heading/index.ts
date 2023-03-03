@@ -12,9 +12,11 @@ function handleSize(size: string | undefined) {
   if (size === "md") {
     return "3.2rem";
   }
-  return "1.2rem";
+  return "2.4rem";
 }
 
 export const HeadingStyles = styled.h1<HeadingStylesTypes>`
   font-size: ${({ size }) => handleSize(size)};
+  color: ${({ theme }) => theme.Text};
+  padding: 1rem 0;
 `;

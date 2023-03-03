@@ -1,4 +1,4 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import { Heading } from '../heading/heading';
 import image from '/image-index.png'
@@ -8,7 +8,11 @@ import image4 from '/image-index-4.png'
 import { StyledSlider } from ".";
 import { motion } from "framer-motion";
 
-export const Slider = () => {
+type SliderProps = {
+  desktop?: boolean | null;
+}
+
+export const Slider = ({ desktop }: SliderProps) => {
   const teste = [
     { text: 'Seus amigos não conseguem se decidir?', image },
     { text: 'Sua namorada sempre diz “tanto faz”?', image: image2 },
@@ -27,7 +31,8 @@ export const Slider = () => {
                 <img className="image" width={100} height={200} src={item.image} alt={image} />
               </motion.div>
 
-              <Heading size="md">{item.text}</Heading>
+              {!desktop && <Heading size="md">{item.text}</Heading>}
+
             </div>
           ))
         }
