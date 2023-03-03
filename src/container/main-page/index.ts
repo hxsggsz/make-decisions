@@ -5,9 +5,18 @@ export const StyledIndex = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     @media (max-width: 768px) {
       display: none;
     }
+  }
+
+  .desktop button {
+    bottom: 0.5rem;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .container {
@@ -23,11 +32,18 @@ export const StyledIndex = styled.div`
     display: none;
     @media (max-width: 768px) {
       display: flex;
-      margin-top: 8rem;
-      gap: 3em 0;
+      margin-top: 6rem;
       flex-direction: column;
       justify-content: center;
       align-items: center;
     }
+  }
+
+  .mobile button {
+    bottom: 0.5rem;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;

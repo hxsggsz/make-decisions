@@ -1,19 +1,42 @@
 import styled from "styled-components";
 
 export const StyledNotFound = styled.div`
-  margin-top: 8rem;
+  width: 100vw;
+  height: 100vh;
+  margin-top: 9rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
+  padding: 1rem 0;
 
   img {
-    transform: translateY(-4rem);
+    @media screen and (max-width: 506px) {
+      max-width: 90vw;
+      max-height: 70vh;
+    }
   }
 
   & > div {
+    height: 100vh;
+    margin-bottom: 4rem;
     display: flex;
     align-items: center;
+    position: relative;
     flex-direction: column;
-    transform: translateY(-4rem);
+    border: 1px solid red;
+
+    @media screen and (max-width: 480px) {
+      max-height: 30vh;
+    }
+  }
+
+  button {
+    position: absolute;
+    bottom: 0;
+  }
+
+  button h1 {
+    white-space: nowrap;
   }
 `;
