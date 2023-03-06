@@ -1,45 +1,58 @@
 import styled from "styled-components";
-
-type NavStylestypes = {
+type sidebarStylestypes = {
   isShowMenu: boolean;
 };
 
-export const StyledNavbar = styled.div<NavStylestypes>`
-  & > div {
-    width: 100vw;
-    position: fixed;
-    top: 0;
-    left: -1.7rem;
-    margin-left: 1.2rem;
-    display: flex;
-    z-index: 9;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 1.6rem;
-    background: ${({ theme }) => theme.Background};
-    border-bottom: 0.4rem solid ${({ theme }) => theme.Text};
+
+export const StyledMenu = styled.div`
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: -1.7rem;
+  margin-left: 1.2rem;
+  display: flex;
+  z-index: 9;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 1.6rem;
+  background: ${({ theme }) => theme.Background};
+  border-bottom: 0.4rem solid ${({ theme }) => theme.Text};
+
+  .logo {
+    user-select: none;
+    margin-right: 3rem;
+    display: block;
+    @media (max-width: 378px) {
+      display: none;
+    }
+  }
+  .icon {
+    display: none;
+    @media (max-width: 378px) {
+      display: block;
+    }
+  }
+`;
+
+export const StyledNavBar = styled.nav`
+  background: ${({ theme }) => theme.Background};
+  border: 0.4rem solid ${({ theme }) => theme.Text};
+  height: 100vh;
+  z-index: 9;
+  width: 41vw;
+  position: absolute;
+  /* transition: display 0.5s ease-in-out; */
+  left: 0;
+  top: 0;
+  display: flex;
+  overflow: hidden;
+
+  @media (max-width: 500px) {
+    width: 70vw;
   }
 
-  nav {
-    background: ${({ theme }) => theme.Background};
-    border: 0.4rem solid ${({ theme }) => theme.Text};
-    height: 100vh;
-    z-index: 9;
-    width: 41vw;
-    position: absolute;
-    transition: left 0.5s ease-in-out;
-    left: ${({ isShowMenu }) => (isShowMenu ? 0 : "-600px")};
-    top: 0;
-    display: flex;
-    overflow: hidden;
-
-    @media (max-width: 500px) {
-      width: 70vw;
-    }
-
-    @media (max-width: 303px) {
-      width: 101vw;
-    }
+  @media (max-width: 303px) {
+    width: 101vw;
   }
 
   .logo {

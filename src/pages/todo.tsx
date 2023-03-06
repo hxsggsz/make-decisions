@@ -14,11 +14,12 @@ export const Todo = () => {
   const { data } = useQuery<GetTodosType>('getTodo', async () => {
     const response = await api.get(`GetUser/${id}`)
 
+
     return response.data
   })
 
-  if (!data?.id) {
-    navigate('/notFound')
+  if (!data) {
+    navigate('/404')
   }
 
   async function createTodo() {
@@ -30,7 +31,7 @@ export const Todo = () => {
 
   return (
     <>
-      <h1>{id}</h1>
+      <h1>{id}, {data?.id}</h1>
 
       <button onClick={() => createTodo()}>teste</button>
     </>
