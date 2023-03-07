@@ -6,6 +6,7 @@ import { useThemes } from "../../context/themeContext"
 import logo from "../../../public/make-decisions-removebg-preview.png"
 import icon from "../../../public/icon.png"
 import { StyledMenu, StyledNavBar } from "."
+import { AnimatePresence } from "framer-motion";
 
 export const Navbar = () => {
   const { colors, setColors } = useThemes()
@@ -19,9 +20,9 @@ export const Navbar = () => {
         <img className="icon" width={80} height={65} src={icon} alt="logo" />
       </StyledMenu >
 
-      {
-        isShowMenu && (
-          <StyledNavBar>
+      <AnimatePresence>
+        {isShowMenu && (
+          <StyledNavBar initial={{ x: -200, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -200, opacity: 0 }} transition={{ type: "tween" }}>
             <div className="close">
               <X cursor="pointer" onClick={() => setIsShowMenu(false)} data-testid='close' size={58} color="#534963" weight="bold" />
             </div>
@@ -29,8 +30,8 @@ export const Navbar = () => {
             <ul>
               <li>
                 <Heading size="md">
-                  Tema {colors ? "Light" : "Dark"}{"  "}
-                  <Switch.Root onCheckedChange={() => setColors(!colors)} className="SwitchRoot">
+                  Tema {colors}
+                  <Switch.Root style={{ marginLeft: "1rem" }} onCheckedChange={() => setColors(colors === "dark" ? "light" : "dark")} className="SwitchRoot">
                     <Switch.Thumb className="SwitchThumb" />
                   </Switch.Root>
                 </Heading>
@@ -39,8 +40,8 @@ export const Navbar = () => {
               <li><Heading size="md"><a href="https://linkedin/in/hxsggsz" target="_blank">Linkedin</a></Heading></li>
             </ul>
           </StyledNavBar>
-        )
-      }
+        )}
+      </AnimatePresence>
     </>
   )
 }

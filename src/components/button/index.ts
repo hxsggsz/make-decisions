@@ -10,7 +10,7 @@ export const StyledButton = styled.button`
   padding: 0 3rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  min-width: 30vw;  
 
   @media (max-width: 768px) {
     padding: 0 2rem;

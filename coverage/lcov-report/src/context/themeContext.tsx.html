@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">49.12% </span>
+                <span class="strong">52.83% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>28/57</span>
+                <span class='fraction'>28/53</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">49.12% </span>
+                <span class="strong">52.83% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>28/57</span>
+                <span class='fraction'>28/53</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -115,11 +115,7 @@
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -154,10 +150,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -192,37 +184,33 @@ interface ThemeTypes {
 }
 &nbsp;
 interface StateProps {
-  colors: boolean;
-  setColors: Dispatch&lt;SetStateAction&lt;boolean&gt;&gt;
+  colors: "dark" | "light";
+  setColors: Dispatch&lt;SetStateAction&lt;string&gt;&gt;
 }
 &nbsp;
 export const ThemeContext = createContext({} as StateProps);
 &nbsp;
 export const useThemes = () =&gt; useContext(ThemeContext);
-// pega o nome do tema pelo localStorage
+&nbsp;
 const getThemeByLocalStorage = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const currentTheme = localStorage.getItem("theme");</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  if (currentTheme) {</span>
 <span class="cstat-no" title="statement not covered" >    return JSON.parse(currentTheme);</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >  return "false";</span>
+<span class="cstat-no" title="statement not covered" >  return "light";</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
 export const ThemesProvider = <span class="fstat-no" title="function not covered" >({ children }: ThemeTypes) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const [colors, setColors] = useState(getThemeByLocalStorage());</span>
 <span class="cstat-no" title="statement not covered" >  const [theme, setTheme] = useState(themes.Light);</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  /**</span>
-<span class="cstat-no" title="statement not covered" >   * retorna o tema com base no useState colors</span>
-<span class="cstat-no" title="statement not covered" >   * useCallback pra essa função só ser executada quando o usuario mudar o tema</span>
-<span class="cstat-no" title="statement not covered" >   */</span>
 <span class="cstat-no" title="statement not covered" >  const setCurrentTheme = useCallback(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (colors) {</span>
-<span class="cstat-no" title="statement not covered" >      localStorage.setItem("theme", JSON.stringify(true));</span>
+<span class="cstat-no" title="statement not covered" >    if (colors === "light") {</span>
+<span class="cstat-no" title="statement not covered" >      localStorage.setItem("theme", JSON.stringify("light"));</span>
 <span class="cstat-no" title="statement not covered" >      return themes.Light;</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >    localStorage.setItem("theme", JSON.stringify(false));</span>
+<span class="cstat-no" title="statement not covered" >    localStorage.setItem("theme", JSON.stringify("dark"));</span>
 <span class="cstat-no" title="statement not covered" >    return themes.Dark;</span>
 <span class="cstat-no" title="statement not covered" >  }, [colors, theme]);</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -238,7 +226,7 @@ export const ThemesProvider = <span class="fstat-no" title="function not covered
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-06T04:12:35.623Z
+                at 2023-03-07T00:35:17.103Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

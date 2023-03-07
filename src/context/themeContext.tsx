@@ -15,37 +15,33 @@ interface ThemeTypes {
 }
 
 interface StateProps {
-  colors: boolean;
-  setColors: Dispatch<SetStateAction<boolean>>
+  colors: "dark" | "light";
+  setColors: Dispatch<SetStateAction<string>>
 }
 
 export const ThemeContext = createContext({} as StateProps);
 
 export const useThemes = () => useContext(ThemeContext);
-// pega o nome do tema pelo localStorage
+
 const getThemeByLocalStorage = () => {
   const currentTheme = localStorage.getItem("theme");
 
   if (currentTheme) {
     return JSON.parse(currentTheme);
   }
-  return "false";
+  return "light";
 };
 
 export const ThemesProvider = ({ children }: ThemeTypes) => {
   const [colors, setColors] = useState(getThemeByLocalStorage());
   const [theme, setTheme] = useState(themes.Light);
 
-  /**
-   * retorna o tema com base no useState colors
-   * useCallback pra essa função só ser executada quando o usuario mudar o tema
-   */
   const setCurrentTheme = useCallback(() => {
-    if (colors) {
-      localStorage.setItem("theme", JSON.stringify(true));
+    if (colors === "light") {
+      localStorage.setItem("theme", JSON.stringify("light"));
       return themes.Light;
     }
-    localStorage.setItem("theme", JSON.stringify(false));
+    localStorage.setItem("theme", JSON.stringify("dark"));
     return themes.Dark;
   }, [colors, theme]);
 

@@ -9,6 +9,6 @@ describe('Button component', () => {
 
   it('should render the loading component', () => {
     render(<Button isLoading={true}>teste</Button>)
-    expect(screen.getByText(/carregando/i)).toBeInTheDocument();
+    expect(screen.getByTestId("loading")).toBeInTheDocument();
   });
 });

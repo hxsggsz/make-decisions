@@ -6,7 +6,9 @@ import { initialState, loadingReducer } from "../reducer/loadingReducer";
 import { Navbar } from "../components/navbar/navbar";
 import { Slider } from "../components/slider/slider";
 import { Button } from "../components/button/button";
-import MainPage from "../container/main-page/MainPage";
+import { StyledIndex } from "../styles";
+import { Heading } from "../components/heading/heading";
+import image from "/image-index.png";
 
 type CreateIDType = {
   id: string;
@@ -36,7 +38,26 @@ export const Home = () => {
   return (
     <>
       <Navbar />
-      <MainPage />
+
+      <StyledIndex>
+        <div className="mobile">
+          <Slider />
+          <Button onClick={createNewId} isLoading={IsLoading}>Vamos lá</Button>
+        </div>
+
+        <div className="desktop">
+
+          <div className="container">
+            <Heading size="md">A forma mais eficiente de decidir algo com seus amigos!</Heading>
+
+            <Heading size="sm">Liste todas as opções e mande para os seus amigos votarem.</Heading>
+
+            <Button onClick={createNewId} isLoading={IsLoading}>Vamos lá</Button>
+
+          </div>
+          <img src={image} width={500} height={450} />
+        </div>
+      </StyledIndex>
     </>
   )
 }

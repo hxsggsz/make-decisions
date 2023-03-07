@@ -1,8 +1,5 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
-type sidebarStylestypes = {
-  isShowMenu: boolean;
-};
-
 
 export const StyledMenu = styled.div`
   width: 100vw;
@@ -34,7 +31,7 @@ export const StyledMenu = styled.div`
   }
 `;
 
-export const StyledNavBar = styled.nav`
+export const StyledNavBar = styled(motion.nav)`
   background: ${({ theme }) => theme.Background};
   border: 0.4rem solid ${({ theme }) => theme.Text};
   height: 100vh;

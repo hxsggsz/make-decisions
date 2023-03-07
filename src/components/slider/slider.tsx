@@ -8,11 +8,7 @@ import image4 from '/image-index-4.png'
 import { StyledSlider } from ".";
 import { motion } from "framer-motion";
 
-type SliderProps = {
-  desktop?: boolean | null;
-}
-
-export const Slider = ({ desktop }: SliderProps) => {
+export const Slider = () => {
   const teste = [
     { text: 'Seus amigos não conseguem se decidir?', image },
     { text: 'Sua namorada sempre diz “tanto faz”?', image: image2 },
@@ -27,11 +23,12 @@ export const Slider = ({ desktop }: SliderProps) => {
         {
           teste.map((item, index) => (
             <div className="container" key={index}>
-              <motion.div whileHover={{ scale: 1.2 }}>
+
+              <motion.div whileHover={{ scale: 1.2, y: 20 }}>
                 <img className="image" width={100} height={200} src={item.image} alt={image} />
               </motion.div>
 
-              {!desktop && <Heading size="md">{item.text}</Heading>}
+              <Heading size="md">{item.text}</Heading>
 
             </div>
           ))
