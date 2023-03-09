@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import { Home } from './pages';
 import { Todo } from './pages/todo';
-import { NotFound } from './pages/notFound';
+import { NotFoundPage } from './pages/not-found';
 
 function App() {
 
@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='todo/:id' element={<Todo />} />
-        <Route path='/404' element={<NotFound />} />
+        <Route path='/404' element={<NotFoundPage />} />
         <Route path='*' element={<Navigate to="/404" />} />
       </Routes>
     </BrowserRouter>
