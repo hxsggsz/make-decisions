@@ -5,7 +5,7 @@ import { useReducer } from "react";
 import { initialState, loadingReducer } from "../reducer/loadingReducer";
 import { Navbar } from "../components/navbar/navbar";
 import { Slider } from "../components/slider/slider";
-import { Button } from "../components/button/button";
+import { Button } from "../components/buttons/button/button";
 import { StyledIndex } from "../styles";
 import { Heading } from "../components/heading/heading";
 import image from "/image-index.png";

@@ -22,7 +22,6 @@ export const StyledNotFound = styled.div`
     align-items: center;
     position: relative;
     flex-direction: column;
-    border: 1px solid red;
     @media screen and (max-width: 480px) {
       max-height: 30vh;
     }
