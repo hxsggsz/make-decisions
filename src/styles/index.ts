@@ -12,7 +12,7 @@ export const StyledIndex = styled.div`
   }
 
   .desktop button {
-    bottom: 0.5rem;
+    bottom: 0.5rem; 
     position: absolute;
     display: flex;
     align-items: center;

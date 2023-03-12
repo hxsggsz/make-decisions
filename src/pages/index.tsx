@@ -9,6 +9,7 @@ import { Button } from "../components/buttons/button/button";
 import { StyledIndex } from "../styles";
 import { Heading } from "../components/heading/heading";
 import image from "/image-index.png";
+import { useMutation } from "react-query";
 
 type CreateIDType = {
   id: string;
@@ -17,7 +18,7 @@ type CreateIDType = {
 export const Home = () => {
   const navigate = useNavigate()
   const id = uuid();
-
+  // criar uma notificação pra quando der erro
   const [{ IsError, IsLoading }, dispatch] = useReducer(loadingReducer, initialState)
 
   const createNewId = async () => {

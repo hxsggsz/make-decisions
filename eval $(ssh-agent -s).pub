@@ -1,0 +1,4 @@
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF05qOaYLh63XEJ161n+54yrUSm3pxzMPjuydD1uA9FQ vt.hugo.2021@gmail.ceval SSH_AUTH_SOCK=/tmp/ssh-XXXXXXd984oJ/agent.20180; export SSH_AUTH_SOCK;
+SSH_AGENT_PID=20181; export SSH_AGENT_PID;
+echo Agent pid 20181;
+om
