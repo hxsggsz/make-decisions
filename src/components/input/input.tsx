@@ -1,14 +1,17 @@
-import { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes, forwardRef } from "react";
 import { StyledInput } from ".";
-import { PaperPlaneRight } from "phosphor-react";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> { }
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  label?: string;
+ }
 
-export const Input = ({ ...props }: InputProps) => {
+interface InputContentProps extends InputHTMLAttributes<HTMLInputElement> { }
+
+export const Input = forwardRef<HTMLInputElement, InputProps>(function InputContent({ ...props }: InputProps, ref) {
   return (
     <StyledInput>
-        Ensira uma opção:
-      <input data-testid="input" {...props} />
+        {props.label}
+      <input data-testid="input" {...props} ref={ref} />
     </StyledInput>
   );
-};
+});

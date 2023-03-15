@@ -25,7 +25,7 @@ export const Home = () => {
     dispatch({ type: "start" })
 
     try {
-      const response = await api.post<CreateIDType>("/CreateUser", { id });
+      const response = await api.post<CreateIDType>("CreateUser", { id });
       const data = response.data
 
       dispatch({ type: "success" })

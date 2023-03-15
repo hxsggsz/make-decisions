@@ -11,8 +11,8 @@ export const Submit = ({ children, isLoading, ...props }: ButtonTypes) => {
           className="spinner"
           type="spin"
           color="#534963"
-          height={38}
-          width={38}
+          height={28}
+          width={28}
         />
       ) : (
         children
