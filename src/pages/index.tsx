@@ -10,6 +10,7 @@ import { StyledIndex } from "../styles";
 import { Heading } from "../components/heading/heading";
 import image from "/image-index.png";
 import { useMutation } from "react-query";
+import { Notification } from "../components/notfication/notification";
 
 type CreateIDType = {
   id: string;
@@ -59,6 +60,7 @@ export const Home = () => {
           <img src={image} width={500} height={450} />
         </div>
       </StyledIndex>
+      {IsError && <Notification content={"alguma coisa deu errado, por favor tente novamete!"}/>}
     </>
   )
 }
