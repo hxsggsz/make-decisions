@@ -7,6 +7,7 @@ import logo from "../../../public/make-decisions-removebg-preview.png"
 import icon from "../../../public/icon.png"
 import { StyledMenu, StyledNavBar } from "."
 import { AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   const { colors, setColors } = useThemes()
@@ -16,8 +17,11 @@ export const Navbar = () => {
     <>
       <StyledMenu>
         <List style={{ paddingLeft: "1rem" }} data-testid="menu" onClick={() => setIsShowMenu(true)} cursor={"pointer"} size={58} color="#534963" weight="bold" />
-        <img className="logo" width={320} height={65} src={logo} alt="logo-make-decisions" />
-        <img className="icon" width={80} height={65} src={icon} alt="logo" />
+
+        <Link to="/">
+          <img className="logo" width={320} height={65} src={logo} alt="logo-make-decisions" />
+          <img className="icon" width={80} height={65} src={icon} alt="logo" />
+        </Link>
       </StyledMenu >
 
       <AnimatePresence>

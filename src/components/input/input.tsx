@@ -5,8 +5,6 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
  }
 
-interface InputContentProps extends InputHTMLAttributes<HTMLInputElement> { }
-
 export const Input = forwardRef<HTMLInputElement, InputProps>(function InputContent({ ...props }: InputProps, ref) {
   return (
     <StyledInput>

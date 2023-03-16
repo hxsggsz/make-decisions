@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 type HeadingStylesTypes = {
   size: string | undefined;
+  variant: boolean | undefined;
 };
 
 function handleSize(size: string | undefined) {
@@ -17,7 +18,7 @@ function handleSize(size: string | undefined) {
 
 export const HeadingStyles = styled.h1<HeadingStylesTypes>`
   font-size: min(${({ size }) => handleSize(size)}, 8vw);
-  color: ${({ theme }) => theme.Text};
+  color: ${({ theme, variant }) => variant ? "#D0D0D0" : theme.Text};
   padding: 1rem 0;
   display: flex;
   align-items: center;

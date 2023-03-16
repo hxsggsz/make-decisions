@@ -18,6 +18,7 @@ export const StyledInput = styled.label`
     border-radius: 1.2rem;
     border: 0.2rem solid #423a4f;
     padding: 0 4.5rem 0 0.5rem;
+    box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.2);
   }
 
   input:focus {

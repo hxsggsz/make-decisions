@@ -4,10 +4,11 @@ import { HeadingStyles } from ".";
 type HeadingTypes = {
   children: ReactNode;
   size?: "sm" | "md";
+  variant?: boolean
 }
 
-export const Heading = ({ children, size }: HeadingTypes) => {
+export const Heading = ({ children, size, variant }: HeadingTypes) => {
   return (
-    <HeadingStyles size={size}>{children}</HeadingStyles>
+    <HeadingStyles size={size} variant={variant}>{children}</HeadingStyles>
   )
 }

@@ -14,5 +14,15 @@ describe('Button component', () => {
 
     expect(button).toBeInTheDocument();
     expect(button).toHaveStyle({ fontSize: "md" });
+    expect(button).toHaveStyle({ color: "rgb(83, 73, 99);" });
+  });
+  
+  it('should check if the component have the correct color', () => {
+    render(<Heading variant>teste</Heading>);
+
+    const button = screen.getByText(/teste/i);
+
+    expect(button).toBeInTheDocument();
+    expect(button).toHaveStyle({ color: "rgb(208, 208, 208);" });
   });
 });
