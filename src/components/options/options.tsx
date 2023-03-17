@@ -1,10 +1,8 @@
-import { PaperPlaneRight, Pencil, X } from "phosphor-react"
-import { Submit } from "../buttons/button-submit/button-submit"
+import { StyledOption } from ".";
 import { Input } from "../input/input"
 import { InputHTMLAttributes, ReactNode, useState } from "react";
-import { PencilSlash } from "@phosphor-icons/react";
-import { StyledOption } from ".";
-
+import { Submit } from "../buttons/button-submit/button-submit"
+import { PaperPlaneRight, Pencil, X } from "phosphor-react"
 
 interface OptionTypes extends InputHTMLAttributes<HTMLInputElement> {
   children: ReactNode;
@@ -24,9 +22,10 @@ export const Options = ({ children, submit, remove, ...props }: OptionTypes) => 
         <span
           className="changeOption">
           <Input
+          data-testid="input"
             {...props}
           />
-          <Submit type="submit" onClick={() => {
+          <Submit data-testid="submit" onClick={() => {
             submit()
             setChangeOption(false)
           }}>
@@ -39,21 +38,14 @@ export const Options = ({ children, submit, remove, ...props }: OptionTypes) => 
         </span>
         : children}
       <div className="options">
-        {changeOption ?
-          <PencilSlash
-            onClick={() => setChangeOption(!changeOption)}
-            cursor="pointer"
-            size={38}
-            weight="bold"
-          />
-          :
           <Pencil
             onClick={() => setChangeOption(!changeOption)}
             cursor="pointer"
+            data-testid="pencil"
             size={38}
             weight="bold"
-          />}
-        <X onClick={remove} cursor="pointer" size={38} weight="bold" />
+          />
+        <X onClick={remove} data-testid="close" cursor="pointer" size={38} weight="bold" />
       </div>
     </StyledOption>
   )

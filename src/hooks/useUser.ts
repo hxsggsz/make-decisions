@@ -16,15 +16,18 @@ type GetTodosType = {
 export const useUser = (id: string) => {
   const navigate = useNavigate();
 
-  const query = useQuery<GetTodosType>('GetUser', async () => {
-    const response = await api.get(`GetUser/${id}`)
+  const query = useQuery<GetTodosType>({
+    queryFn: async () => {
+      const response = await api.get(`GetUser/${id}`)
 
-    //valida se o id bate com o da url. Se não bater, o usuário é redirecionado para "/404"
-    if (!response.data) {
-      navigate('/404')
-    }
+      //valida se o id bate com o da url. Se não bater, o usuário é redirecionado para "/404"
+      if (!response.data) {
+        navigate('/404')
+      }
 
-    return response.data
+      return response.data
+    },
+    queryKey: ["GetUser"]
   })
 
   return query
