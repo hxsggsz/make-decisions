@@ -18,7 +18,7 @@ export const useUser = (id: string) => {
 
   const query = useQuery<GetTodosType>({
     queryFn: async () => {
-      const response = await api.get(`GetUser/${id}`)
+      const response = await api.get(`/GetUser/${id}`)
 
       //valida se o id bate com o da url. Se não bater, o usuário é redirecionado para "/404"
       if (!response.data) {

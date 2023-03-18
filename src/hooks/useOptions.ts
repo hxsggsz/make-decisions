@@ -10,7 +10,7 @@ export const useNewOption = () => {
   const query = useQueryClient()
   const mutate = useMutation({
     mutationFn: (data: NewOption) => {
-      return api.post(`CreateOption`, data);
+      return api.post(`/CreateOption`, data);
     },
     onSuccess: () => {
       //invalida a query e a refaz com o novo conteúdo dentro
@@ -22,14 +22,12 @@ export const useNewOption = () => {
   return mutate
 }
 
-const changeOption = (newOption: NewOption) => {
-  return api.put(`ChangeUserOption`, newOption)
-}
-
 export const usechangeOption = () => {
   const query = useQueryClient()
   const mutate = useMutation({
-    mutationFn: changeOption,
+    mutationFn: (newOption: NewOption) => {
+      return api.put(`/ChangeUserOption`, newOption)
+    },
     mutationKey: "changeOption",
     onSuccess: () => {
       query.invalidateQueries(["GetUser"])
@@ -43,7 +41,7 @@ export const useDeleteOption = () => {
   const query = useQueryClient()
   const mutate = useMutation({
     mutationFn: (id: string) => {
-      return api.delete(`RemoveUserOption/${id}`)
+      return api.delete(`/RemoveUserOption/${id}`)
     },
     onSuccess: () => {
       query.invalidateQueries(["GetUser"])

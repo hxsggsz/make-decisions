@@ -23,7 +23,6 @@ describe('Button component', () => {
 
     UserEvent.click(input)
     fireEvent.focus(input)
-
     await waitFor(() => expect(screen.getByRole('textbox', { name: /ensira uma opção:/i })).toHaveFocus())
     expect(input).toHaveStyle({
       border: "0.4rem solid",

@@ -7,7 +7,6 @@ describe("Options", () => {
     const children = <div>Children</div>;
     render(<Options children={children} submit={() => {}} remove={() => {}} />);
     expect(screen.getByText("Children")).toBeInTheDocument();
-
   });
   
   it("renders an input when click on pencil", async () => {
