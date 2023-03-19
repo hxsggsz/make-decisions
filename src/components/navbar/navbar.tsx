@@ -40,8 +40,8 @@ export const Navbar = () => {
                   </Switch.Root>
                 </Heading>
               </li>
-              <li><Heading size="md"><a href="https://github.com/hxsggsz" target="_blank">Github</a></Heading></li>
-              <li><Heading size="md"><a href="https://linkedin/in/hxsggsz" target="_blank">Linkedin</a></Heading></li>
+              <li><Heading size="md"><a href="https://github.com/hxsggsz" target="_blank" rel="noreferrer">Github</a></Heading></li>
+              <li><Heading size="md"><a href="https://linkedin/in/hxsggsz" target="_blank" rel="noreferrer">Linkedin</a></Heading></li>
             </ul>
           </StyledNavBar>
         )}

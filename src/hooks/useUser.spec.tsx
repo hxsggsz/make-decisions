@@ -1,38 +1,24 @@
-import { BrowserRouter } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { renderHook, waitFor } from "@testing-library/react";
-import { useUser } from "./useUser";
 import { api } from "../api/axios";
-import { ReactNode } from "react";
-import { mockNewUser, mockUserEmpty } from "../utils/mocks/hooks-mocks";
-
-const queryClient = new QueryClient();
-const wrapper = (props: { children: ReactNode }) => (
-  <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
-      {props.children}
-    </BrowserRouter>
-  </QueryClientProvider>
-)
-
-
+import { useUser } from "./useUser";
+import { renderHook, waitFor } from "@testing-library/react";
+import { mockNewUser, mockUserEmpty, wrapperUser } from "../utils/mocks/hooks-mocks";
 
 describe('useUser hook', () => {
   it('should get the user', async () => {
 
     const apiGetSpy = jest.spyOn(api, 'get').mockResolvedValue({ data: mockNewUser });
 
-    const { result } = renderHook(() => useUser("1"), { wrapper });
+    const { result } = renderHook(() => useUser("1"), { wrapper: wrapperUser });
     await waitFor(() => expect(result.current.data).toBe(mockNewUser));
-    await waitFor(() => expect(apiGetSpy).toBeCalledWith('GetUser/1'));
+    await waitFor(() => expect(apiGetSpy).toBeCalledWith('/GetUser/1'));
   });
 
   it('should get nothing with a wrong user', async () => {
-    
+
     const apiGetSpy = jest.spyOn(api, 'get').mockResolvedValue({ data: mockUserEmpty });
 
-    const { result } = renderHook(() => useUser("2"), { wrapper });
-    await waitFor(() => expect(apiGetSpy).toBeCalledWith('GetUser/2'));
+    const { result } = renderHook(() => useUser("2"), { wrapper: wrapperUser });
+    await waitFor(() => expect(apiGetSpy).toBeCalledWith('/GetUser/2'));
     await waitFor(() => expect(result.current.data).toBe(mockUserEmpty));
   });
 });

@@ -34,7 +34,6 @@ const getThemeByLocalStorage = () => {
 
 export const ThemesProvider = ({ children }: ThemeTypes) => {
   const [colors, setColors] = useState(getThemeByLocalStorage());
-  const [theme, setTheme] = useState(themes.Light);
 
   const setCurrentTheme = useCallback(() => {
     if (colors === "light") {
@@ -43,7 +42,7 @@ export const ThemesProvider = ({ children }: ThemeTypes) => {
     }
     localStorage.setItem("theme", JSON.stringify("dark"));
     return themes.Dark;
-  }, [colors, theme]);
+  }, [colors]);
 
   return (
     <ThemeContext.Provider value={{ colors, setColors }}>

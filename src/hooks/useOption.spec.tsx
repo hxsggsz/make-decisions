@@ -1,20 +1,7 @@
-import { QueryClient, QueryClientProvider } from "react-query";
-import { act, renderHook, waitFor } from "@testing-library/react";
-import { useUser } from "./useUser";
-import { ReactNode } from "react";
-import nock from "nock";
-import { useDeleteOption, useNewOption, usechangeOption } from "./useOptions";
-import uuid from "react-uuid";
 import { api } from "../api/axios";
-import { mockNewOption, mockOptionUpdated } from "../utils/mocks/hooks-mocks";
-
-const queryClient = new QueryClient();
-const wrapper = (props: { children: ReactNode }) => (
-  <QueryClientProvider client={queryClient}>
-    {props.children}
-  </QueryClientProvider>
-)
-
+import { act, renderHook, waitFor } from "@testing-library/react";
+import { useDeleteOption, useNewOption, usechangeOption } from "./useOptions";
+import { mockNewOption, mockOptionUpdated, wrapper } from "../utils/mocks/hooks-mocks";
 
 describe('useNewOption hook', () => {
   it('should create an user', async () => {

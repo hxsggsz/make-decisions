@@ -1,16 +1,15 @@
 import uuid from "react-uuid"
-import { api } from "../api/axios";
-import { useNavigate } from "react-router-dom";
 import { useReducer } from "react";
-import { initialState, loadingReducer } from "../reducer/loadingReducer";
+import { api } from "../api/axios";
+import image from "/image-index.png";
+import { StyledIndex } from "../styles";
+import { useNavigate } from "react-router-dom";
 import { Navbar } from "../components/navbar/navbar";
 import { Slider } from "../components/slider/slider";
-import { Button } from "../components/buttons/button/button";
-import { StyledIndex } from "../styles";
 import { Heading } from "../components/heading/heading";
-import image from "/image-index.png";
-import { useMutation } from "react-query";
+import { Button } from "../components/buttons/button/button";
 import { Notification } from "../components/notfication/notification";
+import { initialState, loadingReducer } from "../reducer/loadingReducer";
 
 type CreateIDType = {
   id: string;

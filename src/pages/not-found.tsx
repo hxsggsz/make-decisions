@@ -1,10 +1,10 @@
-import { ArrowLeft } from "phosphor-react"
-import { Link } from "react-router-dom"
-import { Heading } from "../components/heading/heading"
-import { Navbar } from "../components/navbar/navbar"
-import { Button } from "../components/buttons/button/button"
 import notFound from "/not-found.png"
+import { Link } from "react-router-dom"
+import { ArrowLeft } from "phosphor-react"
 import { StyledNotFound } from "../styles/not-found"
+import { Navbar } from "../components/navbar/navbar"
+import { Heading } from "../components/heading/heading"
+import { Button } from "../components/buttons/button/button"
 export const NotFoundPage = () => {
   return (
     <>
