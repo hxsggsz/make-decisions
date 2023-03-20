@@ -5,7 +5,8 @@ export const TodoPage = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 10rem;
+  margin-top: 6rem;
+  gap: 1rem 0;
 `
 
 export const Todo = styled.form`
@@ -16,14 +17,13 @@ export const Todo = styled.form`
 
 export const Ul = styled.ul`
   display: flex;
-  padding-top: 2rem;
   flex-direction: column;
   align-items: center;
   justify-content: start;
   gap: 1rem;
   width: 100%;
   max-width: 70vw;
-  height: 70vh;
+  height: 60vh;
   overflow-y: auto;
   
   @media (max-width: 768px) {

@@ -15,6 +15,7 @@ export const StyledOption = styled(motion.li)`
   padding-left: 1rem;
   border: .2rem solid ${({ theme }) => theme.Text};
   border-radius: 1.2rem;
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.2);
 
   .options {
     display: flex;

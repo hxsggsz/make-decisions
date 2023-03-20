@@ -6,11 +6,11 @@ type NewOption = {
   option: string
 }
 
-export const useNewOption = () => {
+export const useNewOption = (id: string) => {
   const query = useQueryClient()
   const mutate = useMutation({
     mutationFn: (data: NewOption) => {
-      return api.post(`/CreateOption`, data);
+      return api.post(`/CreateOption/${id}`, data);
     },
     onSuccess: () => {
       //invalida a query e a refaz com o novo conteúdo dentro

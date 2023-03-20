@@ -17,7 +17,7 @@ describe('useNewOption hook', () => {
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
     await waitFor(() => expect(result.current.data?.data).toBe(mockNewOption));
-    await waitFor(() => expect(apiGetSpy).toBeCalledWith('/CreateOption', { "id": "1", "option": "teste" }));
+    await waitFor(() => expect(apiGetSpy).toBeCalledWith('/CreateOption', { "id": "1", "option": "test" }));
   });
   it('should create an user', async () => {
     const { result } = renderHook(() => useNewOption(), { wrapper });
@@ -45,13 +45,13 @@ describe('usechangeOption hook', () => {
     await act(async () => {
       result.current.mutate({
         id: "1",
-        option: "teste updated",
+        option: "test updated",
       });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
     await waitFor(() => expect(result.current.data?.data).toBe(mockOptionUpdated));
-    await waitFor(() => expect(apiGetSpy).toBeCalledWith('/ChangeUserOption', { "id": "1", "option": "teste updated" }));
+    await waitFor(() => expect(apiGetSpy).toBeCalledWith('/ChangeUserOption', { "id": "1", "option": "test updated" }));
   });
   it('should not change the current user', async () => {
     const { result } = renderHook(() => useNewOption(), { wrapper });
@@ -60,7 +60,7 @@ describe('usechangeOption hook', () => {
     await act(async () => {
       result.current.mutate({
         id: "1",
-        option: "teste",
+        option: "test",
       });
     });
 

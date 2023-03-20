@@ -11,7 +11,7 @@ export const StyledButton = styled.button`
     color: ${({ theme }) => theme.Text};
     border: 0.4rem solid ${({ theme }) => theme.Text};
     border-bottom: 1rem solid ${({ theme }) => theme.Text};
-    padding: 1rem 3rem;
+    padding: .7rem 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,5 +54,21 @@ export const StyledSubmit = styled.button`
   &:active {
     transition: transform 250ms ease-in-out;
     transform: translateY(0.4rem);
+  }
+`;
+
+export const StyledVotes = styled.button`
+  cursor: pointer;
+  background: transparent;
+  padding: 0.7rem;
+  border: .4rem solid ${({ theme }) => theme.Text};
+  &:active {
+    transition: transform 250ms ease-in-out;
+    transform: translateY(0.4rem);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: #a6a6a6;
   }
 `;

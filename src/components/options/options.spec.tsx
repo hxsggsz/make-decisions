@@ -15,7 +15,7 @@ describe("Options", () => {
     UserEvent.click(screen.getByTestId("pencil"))
     await waitFor(() => expect(screen.getByTestId("input")).toBeInTheDocument());
   });
-  
+   
   it("calls submit when submit button is clicked", async () => {
     const submitMock = jest.fn();
     render(<Options children={"teste"} remove={() => {}} submit={submitMock} />);

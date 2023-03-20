@@ -14,11 +14,10 @@ describe('useUser hook', () => {
   });
 
   it('should get nothing with a wrong user', async () => {
-
     const apiGetSpy = jest.spyOn(api, 'get').mockResolvedValue({ data: mockUserEmpty });
 
     const { result } = renderHook(() => useUser("2"), { wrapper: wrapperUser });
     await waitFor(() => expect(apiGetSpy).toBeCalledWith('/GetUser/2'));
-    await waitFor(() => expect(result.current.data).toBe(mockUserEmpty));
+    await waitFor(() => expect(result.current.data).toStrictEqual(mockUserEmpty));
   });
 });

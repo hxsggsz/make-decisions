@@ -7,6 +7,7 @@ import {
 import { Home } from './pages';
 import { Todo } from './pages/todo';
 import { NotFoundPage } from './pages/not-found';
+import { Votes } from './pages/votes';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='todo/:id' element={<Todo />} />
+        <Route path='votes/:id' element={<Votes />} />
         <Route path='/404' element={<NotFoundPage />} />
         <Route path='*' element={<Navigate to="/404" />} />
       </Routes>

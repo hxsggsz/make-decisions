@@ -1,7 +1,7 @@
 import * as style from "../styles/todo";
 import { useUser } from "../hooks/useUser";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { PaperPlaneRight } from "phosphor-react";
 import { Validation } from "../utils/validation";
@@ -13,6 +13,8 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { Notification } from "../components/notfication/notification";
 import { Submit } from "../components/buttons/button-submit/button-submit";
 import { useNewOption, useDeleteOption, usechangeOption } from "../hooks/useOptions";
+import { Button } from "../components/buttons/button/button";
+import { Heading } from "../components/heading/heading";
 
 type FormValue = {
   new: string;
@@ -21,7 +23,7 @@ type FormValue = {
 export const Todo = () => {
   const { id } = useParams();
   const { data } = useUser(id!);
-  const { mutate, isLoading, isSuccess } = useNewOption();
+  const { mutate, isLoading, isSuccess } = useNewOption(id!);
   const { mutate: remove } = useDeleteOption();
   const { mutate: change } = usechangeOption();
   const [values, setValues] = useState("")
@@ -49,7 +51,7 @@ export const Todo = () => {
   }
 
   const onSubmit: SubmitHandler<FormValue> = (value) => {
-      submit(value.new)
+    submit(value.new)
   }
 
   return (
@@ -76,7 +78,7 @@ export const Todo = () => {
           <AnimatePresence>
             {data?.options.map(it => (
               <Options
-                key={it.id} 
+                key={it.id}
                 value={values}
                 onChange={(ev) => setValues(ev.currentTarget.value)}
                 submit={() => changeOpt(it.id)}
@@ -88,6 +90,13 @@ export const Todo = () => {
           </AnimatePresence>
         </style.Ul>
       }
+
+      {data?.options.length !== 0 && (
+        <Button asChild>
+          <Link to={`/votes/${id}`}><Heading size="sm">Compartilhe com amigos!</Heading></Link>
+        </Button>
+      )}
+
     </style.TodoPage>
   );
 }
