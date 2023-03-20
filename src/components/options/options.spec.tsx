@@ -29,7 +29,7 @@ describe("Options", () => {
   it("calls remove when X button is clicked", async () => {
     const removeMock = jest.fn();
     render(<Options children="teste" submit={() => {}} remove={removeMock} />);
-    
+      
     UserEvent.click(screen.getByTestId("pencil"))
     await waitFor(() => expect(screen.getByTestId(/close/i)).toBeInTheDocument());
     UserEvent.click(screen.getByTestId("close"));

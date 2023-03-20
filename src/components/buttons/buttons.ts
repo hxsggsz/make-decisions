@@ -6,7 +6,7 @@ export const StyledButton = styled.button`
 
   .button {
     cursor: pointer;
-    background: #d9d9d9;
+    background: transparent;
     border-radius: 2.4rem;
     color: ${({ theme }) => theme.Text};
     border: 0.4rem solid ${({ theme }) => theme.Text};

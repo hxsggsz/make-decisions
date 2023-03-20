@@ -27,7 +27,7 @@ export const Todo = () => {
   const { mutate: remove } = useDeleteOption();
   const { mutate: change } = usechangeOption();
   const [values, setValues] = useState("")
-
+  const [isCliped, setIsCliped] = useState(false)
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormValue>({ resolver: Validation })
 
   useEffect(() => {
@@ -92,11 +92,18 @@ export const Todo = () => {
       }
 
       {data?.options.length !== 0 && (
-        <Button asChild>
-          <Link to={`/votes/${id}`}><Heading size="sm">Compartilhe com amigos!</Heading></Link>
+        <Button onClick={() => {
+          navigator.clipboard.writeText(`http://localhost:5173/votes/${id}`)
+          setIsCliped(true)
+          setTimeout(() => {
+            setIsCliped(false)
+          }, 5000);
+        }}>
+          <Heading size="sm">Compartilhe com amigos!</Heading>
         </Button>
       )}
-
+      
+      {isCliped && <Notification content="Link copiado!"/>}
     </style.TodoPage>
   );
 }

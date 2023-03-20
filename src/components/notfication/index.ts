@@ -27,7 +27,7 @@ export const StyledNotification = styled(motion.div)`
   }
   
   .content {
-    background: #D0D0D0;
+    background: ${({ theme }) => theme.Background};
     border-radius: 0 0 .8rem .8rem ;
     word-break: break-word;
   }
