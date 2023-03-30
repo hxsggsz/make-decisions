@@ -1,10 +1,28 @@
 import styled from "styled-components";
 
-export const StyledInput = styled.label`
-  width: 100%;
-  color: ${({ theme }) => theme.Text};
-  font-size: 2rem;
-  font-weight: 700;
+export const StyledInput = styled.div`
+  position: relative;
+  
+  label {
+    position: absolute;
+    cursor: text;
+    width: 100%;
+    color: ${({ theme }) => theme.Text};
+    font-size: 2rem;
+    font-weight: 700;
+    transform-origin: top left;
+    padding-left: 1rem;
+    transition: all 0.2s ease-out;
+    transform: translate(0, 1rem) ;
+  }
+
+  & .active {
+    transform: translate(0, -3.1rem);
+  }
+  &:focus-within label {
+    transform: translate(0, -3.1rem);
+  }
+
 
   input {
     color: ${({ theme }) => theme.Text};

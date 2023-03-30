@@ -5,7 +5,7 @@ export const TodoPage = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 6rem;
+  margin-top: 10rem;
   gap: 1rem 0;
 `
 

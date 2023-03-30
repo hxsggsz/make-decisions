@@ -28,7 +28,11 @@ export const Todo = () => {
   const { mutate: change } = usechangeOption();
   const [values, setValues] = useState("")
   const [isCliped, setIsCliped] = useState(false)
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormValue>({ resolver: Validation })
+  const [IsActive, setIsActive] = useState(false)
+  const { register, handleSubmit, reset, getValues, formState: { errors } } = useForm<FormValue>({ resolver: Validation })
+
+
+  const handleActive = () => getValues("new") !== "" ? setIsActive(true) : setIsActive(false)
 
   useEffect(() => {
     reset({ new: "" })
@@ -60,9 +64,11 @@ export const Todo = () => {
 
       <style.Todo data-testid="submit" onSubmit={handleSubmit(onSubmit)}>
         <Input
-          label="Ensira uma opção:"
           type="text"
+          isactive={IsActive}
           {...register("new")}
+          onBlur={handleActive}
+          label="Ensira uma opção:"
         />
         <Submit type="submit" data-testid="button" isLoading={isLoading}>
           <PaperPlaneRight size={28} weight="bold" color="white" />
@@ -102,8 +108,8 @@ export const Todo = () => {
           <Heading size="sm">Compartilhe com amigos!</Heading>
         </Button>
       )}
-      
-      {isCliped && <Notification content="Link copiado!"/>}
+
+      {isCliped && <Notification content="Link copiado!" />}
     </style.TodoPage>
   );
 }
