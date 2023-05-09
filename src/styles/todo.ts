@@ -15,6 +15,7 @@ export const Todo = styled.form`
   justify-content: center;
   gap: 1rem;
   width: 100%;
+  max-width: 56rem;
 `;
 
 export const Ul = styled.ul`
@@ -35,12 +36,12 @@ export const Ul = styled.ul`
   }
   /* scrollbar */
   &::-webkit-scrollbar {
-    width: 0.7vw;
+    width: .8rem;
     background: none;
     border: none;
   }
   &::-webkit-scrollbar-thumb {
-  background: ${({ theme }) => theme.Text};
+    background: ${({ theme }) => theme.Text};
     border-radius: 2px;
   }
 `;

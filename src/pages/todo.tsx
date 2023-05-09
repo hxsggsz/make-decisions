@@ -30,7 +30,6 @@ export const Todo = () => {
   const [IsActiveInput, setIsActiveInput] = useState<boolean>(false)
   const { register, handleSubmit, reset, getValues, formState: { errors } } = useForm<FormValue>({ resolver: Validation })
 
-
   const handleActiveInput = () => getValues("new") !== "" ? setIsActiveInput(true) : setIsActiveInput(false)
 
   useEffect(() => {
@@ -68,7 +67,7 @@ export const Todo = () => {
 
   return (
     <style.TodoPage>
-      <Navbar /> 
+      <Navbar />
 
       <style.Todo data-testid="submit" onSubmit={handleSubmit(onSubmit)}>
         <Input
@@ -78,9 +77,9 @@ export const Todo = () => {
           label="Ensira uma opção:"
           onBlur={handleActiveInput}
         />
-        <Submit 
-          type="submit" 
-          data-testid="button" 
+        <Submit
+          type="submit"
+          data-testid="button"
           isLoading={isLoading}
         />
       </style.Todo>
@@ -92,17 +91,18 @@ export const Todo = () => {
       {data?.options.length === 0 ? <Empty /> :
         <style.WrapperList>
           <style.Ul>
+            <AnimatePresence>
               {data?.options.map(it => (
                 <Options
                   key={it.id}
                   value={values}
+                  text={it.option}
                   remove={() => remove(it.id)}
                   submit={() => changeOpt(it.id)}
                   onChange={(ev) => setValues(ev.currentTarget.value)}
-                >
-                  {it.option}
-                </Options>
+                />
               ))}
+            </AnimatePresence>
           </style.Ul>
         </style.WrapperList>
       }

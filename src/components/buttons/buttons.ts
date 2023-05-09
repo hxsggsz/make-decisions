@@ -16,7 +16,7 @@ export const StyledButton = styled.div`
     align-items: center;
     justify-content: center;
     min-width: 30vw;
-    max-width: 35vw;
+    max-width: 50vw;
     font-size: 3.2rem;
     font-weight: 700;
     white-space: nowrap;
@@ -66,6 +66,7 @@ export const StyledVotes = styled.button`
   cursor: pointer;
   background: transparent;
   padding: 0.7rem;
+  word-break: break-all;
   border: .4rem solid ${({ theme }) => theme.Text};
 
   &:active {

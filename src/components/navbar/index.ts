@@ -113,6 +113,7 @@ export const listItem = styled.li`
     position: absolute;
     inset: 0;
     padding: 0 1rem;
+    border-radius: 1.2rem;
     width: 100%;
     background: ${({ theme }) => theme.Text};
     transform: scaleX(0);

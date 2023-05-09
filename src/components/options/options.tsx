@@ -3,26 +3,26 @@ import { Input } from "../input/input"
 import { InputHTMLAttributes, ReactNode, useState } from "react";
 import { Submit } from "../buttons/button-submit/button-submit"
 import { PaperPlaneRight, Pencil, X } from "phosphor-react"
-import { AnimatePresence } from "framer-motion";
 
 interface OptionTypes extends InputHTMLAttributes<HTMLInputElement> {
-  children: ReactNode;
+  text: string
   submit: () => void
   remove: () => void
 }
 
-export const Options = ({ children, submit, remove, ...props }: OptionTypes) => {
+export const Options = ({ text, submit, remove, ...props }: OptionTypes) => {
   const [changeOption, setChangeOption] = useState(false);
 
   return (
-    <AnimatePresence>
+    <>
       <style.option
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}
-        transition={{ duration: 0.3, ease: "backInOut" }}
+        transition={{ type: "spring", duration: 0.6 }}
       >
-        {changeOption ?
+
+        {changeOption ? (
           <style.inputOption
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -43,7 +43,7 @@ export const Options = ({ children, submit, remove, ...props }: OptionTypes) => 
               />
             </Submit>
           </style.inputOption>
-          : children}
+        ) : text}
 
         <style.buttonsWrapper>
           <Pencil
@@ -64,6 +64,6 @@ export const Options = ({ children, submit, remove, ...props }: OptionTypes) => 
         </style.buttonsWrapper>
 
       </style.option>
-    </AnimatePresence>
+    </>
   )
 }
