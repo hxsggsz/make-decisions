@@ -7,8 +7,6 @@ type HeadingTypes = {
   variant?: boolean
 }
 
-export const Heading = ({ children, size, variant }: HeadingTypes) => {
-  return (
-    <HeadingStyles size={size} variant={variant}>{children}</HeadingStyles>
-  )
-}
+export const Heading = ({ children, size, variant }: HeadingTypes) => (
+  <HeadingStyles size={size} variant={variant}>{children}</HeadingStyles>
+)

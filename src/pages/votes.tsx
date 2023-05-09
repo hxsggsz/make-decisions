@@ -11,19 +11,17 @@ export const Votes = () => {
   const { mutate } = useVote()
 
   return (
-    <style.StyledVotes>
+    <>
       <Navbar />
       {data?.options.length === 0 ? <Empty isVotes path={`/todo/${id}`} /> :
 
-        <div className="container">
-
+        <style.votes>
           {data?.options.map(option => (
             <ButtonVotes key={option.id} vote={() => mutate(option.id)} votes={option.votes} id={option.id} />
           ))}
-
-        </div>
+        </style.votes>
 
       }
-    </style.StyledVotes>
+    </>
   )
 }

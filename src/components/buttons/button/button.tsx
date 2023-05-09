@@ -19,7 +19,7 @@ export const Button = ({ children, isLoading, asChild, ...props }: ButtonTypes) 
             type="spin"
             color="#534963"
             height={38}
-            width={38}
+            width={38} 
           />
         ) : (
           children

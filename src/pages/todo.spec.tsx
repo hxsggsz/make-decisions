@@ -1,5 +1,18 @@
-import { fireEvent, screen } from "@testing-library/react";
-import { todoComponent } from "../utils/mocks/hooks-mocks";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { QueryClientProvider, QueryClient } from "react-query";
+import { BrowserRouter } from "react-router-dom";
+import { Todo } from "./todo";
+
+export const todoComponent = () => {
+  const queryClient = new QueryClient();
+  render(
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Todo />
+      </BrowserRouter>
+    </QueryClientProvider>
+  )
+}
 
 describe('Todo page', () => {
   it('should render the Todo page correctly', () => {

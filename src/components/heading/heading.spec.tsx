@@ -23,6 +23,6 @@ describe('Button component', () => {
     const Title = screen.getByText(/teste/i);
 
     expect(Title).toBeInTheDocument();
-    expect(Title).toHaveStyle({ color: "rgb(208, 208, 208)" });
+    expect(Title).toHaveStyle({ color: "#d6d6d6;" });
   });
 });

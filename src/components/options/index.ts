@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const StyledOption = styled(motion.li)`
+export const option = styled(motion.li)`
   display: flex;
   justify-content: space-between;
   gap: 2rem;
@@ -16,17 +16,16 @@ export const StyledOption = styled(motion.li)`
   border: .2rem solid ${({ theme }) => theme.Text};
   border-radius: 1.2rem;
   box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.2);
+`;
 
-  .options {
-    display: flex;
-    gap: .3rem;
-  }
+export const inputOption = styled(motion.span)`
+  display: flex;
+  gap: 0 .3rem;
+  align-items: center;
+  width: 100%
+`;
 
-  .changeOption {
-    display: flex;
-    gap: 0 .3rem;
-    align-items: center;
-    width: 100%;
-  }
-
+export const buttonsWrapper = styled.div`
+  display: flex;
+  gap: .3rem;
 `;

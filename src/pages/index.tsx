@@ -2,7 +2,7 @@ import uuid from "react-uuid"
 import { useReducer } from "react";
 import { api } from "../api/axios";
 import image from "/image-index.png";
-import { StyledIndex } from "../styles";
+import * as style from "../styles";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "../components/navbar/navbar";
 import { Slider } from "../components/slider/slider";
@@ -40,26 +40,25 @@ export const Home = () => {
     <>
       <Navbar />
 
-      <StyledIndex>
-        <div className="mobile">
-          <Slider />
+      <style.mobile>
+        <Slider />
+        <Button onClick={createNewId} isLoading={IsLoading}>Vamos lá</Button>
+      </style.mobile>
+
+      <style.desktop>
+
+        <style.container>
+          <Heading size="md">A forma mais eficiente de decidir algo com seus amigos!</Heading>
+
+          <Heading size="sm">Liste todas as opções e mande para os seus amigos votarem.</Heading>
+
           <Button onClick={createNewId} isLoading={IsLoading}>Vamos lá</Button>
-        </div>
 
-        <div className="desktop">
+        </style.container>
+        <img src={image} width={500} height={450} />
+      </style.desktop>
 
-          <div className="container">
-            <Heading size="md">A forma mais eficiente de decidir algo com seus amigos!</Heading>
-
-            <Heading size="sm">Liste todas as opções e mande para os seus amigos votarem.</Heading>
-
-            <Button onClick={createNewId} isLoading={IsLoading}>Vamos lá</Button>
-
-          </div>
-          <img src={image} width={500} height={450} />
-        </div>
-      </StyledIndex>
-      {IsError && <Notification content={"alguma coisa deu errado, por favor tente novamete!"}/>}
+      {IsError && <Notification content="alguma coisa deu errado, por favor tente novamete!" />}
     </>
   )
 }

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const StyledSlider = styled.div`
+export const slider = styled.div`
   .carousel .slide {
     display: flex;
-    align-items: center;
+    align-items: end;
     justify-content: center;
   }
 
@@ -15,16 +15,19 @@ export const StyledSlider = styled.div`
       max-width: 100vw;
     }
   }
+`;
 
-  .container {
-    margin-bottom: 3.8rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+export const container = styled.div`
+  margin-bottom: 3.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2rem;
+  border: 4px solid ${({ theme }) => theme.Text};
+  border-bottom: 8px solid ${({ theme }) => theme.Text};
+  
+  @media (max-width: 768px) {
     min-width: 90vw;
-    border-radius: 2rem;
-    border: 4px solid ${({ theme }) => theme.Text};
-    border-bottom: 8px solid ${({ theme }) => theme.Text};
   }
 `;

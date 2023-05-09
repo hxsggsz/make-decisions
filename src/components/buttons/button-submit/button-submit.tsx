@@ -1,21 +1,27 @@
+import { ButtonTypes } from "../types";
 import ReactLoading from "react-loading";
 import { StyledSubmit } from "../buttons";
-import { ButtonTypes } from "../types";
+import { PaperPlaneRight } from "phosphor-react";
 
-export const Submit = ({ children, isLoading, ...props }: ButtonTypes) => {
+export const Submit = ({ isLoading, ...props }: ButtonTypes) => {
   return (
     <StyledSubmit {...props}>
       {isLoading ? (
         <ReactLoading
-          data-testid="loading"
-          className="spinner"
+          width={28} 
+          height={28}
           type="spin"
           color="#D0D0D0"
-          height={28}
-          width={28}
+          className="spinner"
+          data-testid="loading-spinner"
         />
       ) : ( 
-        children
+        <PaperPlaneRight 
+            size={28} 
+            weight="bold" 
+            data-testid="paper-plane"
+            className="paper"
+          />
       )}
     </StyledSubmit>
   )

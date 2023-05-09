@@ -5,7 +5,7 @@ import * as Switch from '@radix-ui/react-switch';
 import { useThemes } from "../../context/themeContext"
 import logo from "../../../public/make-decisions-removebg-preview.png"
 import icon from "../../../public/icon.png"
-import { StyledMenu, StyledNavBar } from "."
+import * as style from "."
 import { AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -15,35 +15,62 @@ export const Navbar = () => {
 
   return (
     <>
-      <StyledMenu>
-        <List style={{ paddingLeft: "1rem" }} data-testid="menu" onClick={() => setIsShowMenu(true)} cursor={"pointer"} size={58} color="#534963" weight="bold" />
+      <style.menu>
+        <List data-testid="menu" onClick={() => setIsShowMenu(true)} cursor="pointer" size={58} color="#534963" weight="bold" />
 
         <Link to="/">
           <img className="logo" width={320} height={65} src={logo} alt="logo-make-decisions" />
           <img className="icon" width={80} height={65} src={icon} alt="logo" />
         </Link>
-      </StyledMenu >
+      </style.menu >
 
       <AnimatePresence>
         {isShowMenu && (
-          <StyledNavBar initial={{ x: -200, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -200, opacity: 0 }} transition={{ type: "tween" }}>
-            <div className="close">
-              <X cursor="pointer" onClick={() => setIsShowMenu(false)} data-testid='close' size={58} color="#534963" weight="bold" />
-            </div>
+          <style.wrapper
+            initial={{ x: -200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -200, opacity: 0 }}
+            transition={{ type: "tween" }}
+          >
+            <style.close>
+              <X
+                size={58}
+                weight="bold"
+                color="#534963"
+                data-testid='close' 
+                onClick={() => setIsShowMenu(false)}
+              />
+            </style.close>
 
-            <ul>
-              <li>
+            <style.listWrapper>
+
+              <style.listItem>
                 <Heading size="md">
                   Tema {colors}
-                  <Switch.Root style={{ marginLeft: "1rem" }} onCheckedChange={() => setColors(colors === "dark" ? "light" : "dark")} className="SwitchRoot">
+                  <Switch.Root onCheckedChange={() => setColors(colors === "dark" ? "light" : "dark")} className="SwitchRoot">
                     <Switch.Thumb className="SwitchThumb" />
                   </Switch.Root>
                 </Heading>
-              </li>
-              <li><Heading size="md"><a href="https://github.com/hxsggsz" target="_blank" rel="noreferrer">Github</a></Heading></li>
-              <li><Heading size="md"><a href="https://linkedin/in/hxsggsz" target="_blank" rel="noreferrer">Linkedin</a></Heading></li>
-            </ul>
-          </StyledNavBar>
+              </style.listItem>
+
+              <style.listItem>
+                <Link to="https://github.com/hxsggsz/make-decisions/tree/master" target="_blank" rel="noreferrer">
+                  <Heading size="md">
+                    Github
+                  </Heading>
+                </Link>
+              </style.listItem>
+
+              <style.listItem>
+                <Link to="https://www.linkedin.com/in/hxsggsz/" target="_blank" rel="noreferrer">
+                  <Heading size="md">
+                    Linkedin
+                  </Heading>
+                </Link>
+              </style.listItem>
+
+            </style.listWrapper>
+          </style.wrapper>
         )}
       </AnimatePresence>
     </>

@@ -7,8 +7,8 @@ import { Heading } from "../components/heading/heading"
 import { Button } from "../components/buttons/button/button"
 export const NotFoundPage = () => {
   return (
-    <>
-      < Navbar />
+    <> 
+      <Navbar />
       <StyledNotFound>
         <Heading>Página não encontrada :(</Heading>
         <img src={notFound} width={450} height={364} />

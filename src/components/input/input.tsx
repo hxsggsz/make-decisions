@@ -1,5 +1,5 @@
 import { InputHTMLAttributes, forwardRef } from "react";
-import { StyledInput } from ".";
+import * as style from ".";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -8,11 +8,11 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(function InputContent({ ...props }: InputProps, ref) {
   return (
-    <StyledInput>
-      <label className={props.isactive ? "active" : ""} htmlFor="input">
+    <style.wrapper>
+      <style.label className={props.isactive ? "active" : ""} htmlFor="input">
         {props.label}
-      </label>
-      <input id="input" data-testid="input" {...props} ref={ref} />
-    </StyledInput>
+      </style.label>
+      <style.input id="input" data-testid="input" {...props} ref={ref} />
+    </style.wrapper>
   );
 });

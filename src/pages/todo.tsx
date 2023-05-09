@@ -1,20 +1,19 @@
 import * as style from "../styles/todo";
 import { useUser } from "../hooks/useUser";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { PaperPlaneRight } from "phosphor-react";
 import { Validation } from "../utils/validation";
 import { Input } from "../components/input/input";
 import { Empty } from "../components/empty/empty";
 import { Navbar } from "../components/navbar/navbar";
+import { Heading } from "../components/heading/heading";
 import { Options } from "../components/options/options";
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { Button } from "../components/buttons/button/button";
 import { Notification } from "../components/notfication/notification";
 import { Submit } from "../components/buttons/button-submit/button-submit";
 import { useNewOption, useDeleteOption, usechangeOption } from "../hooks/useOptions";
-import { Button } from "../components/buttons/button/button";
-import { Heading } from "../components/heading/heading";
 
 type FormValue = {
   new: string;
@@ -27,12 +26,12 @@ export const Todo = () => {
   const { mutate: remove } = useDeleteOption();
   const { mutate: change } = usechangeOption();
   const [values, setValues] = useState("")
-  const [isCliped, setIsCliped] = useState(false)
-  const [IsActive, setIsActive] = useState(false)
+  const [isCopy, setIsCopy] = useState(false)
+  const [IsActiveInput, setIsActiveInput] = useState<boolean>(false)
   const { register, handleSubmit, reset, getValues, formState: { errors } } = useForm<FormValue>({ resolver: Validation })
 
 
-  const handleActive = () => getValues("new") !== "" ? setIsActive(true) : setIsActive(false)
+  const handleActiveInput = () => getValues("new") !== "" ? setIsActiveInput(true) : setIsActiveInput(false)
 
   useEffect(() => {
     reset({ new: "" })
@@ -58,58 +57,63 @@ export const Todo = () => {
     submit(value.new)
   }
 
+  const handleCopy = () => {
+    // id da URL
+    navigator.clipboard.writeText(`http://localhost:5173/votes/${id}`)
+    setIsCopy(true)
+    setTimeout(() => {
+      setIsCopy(false)
+    }, 5000);
+  }
+
   return (
     <style.TodoPage>
-      <Navbar />
+      <Navbar /> 
 
       <style.Todo data-testid="submit" onSubmit={handleSubmit(onSubmit)}>
         <Input
           type="text"
-          isactive={IsActive}
           {...register("new")}
-          onBlur={handleActive}
+          isactive={IsActiveInput}
           label="Ensira uma opção:"
+          onBlur={handleActiveInput}
         />
-        <Submit type="submit" data-testid="button" isLoading={isLoading}>
-          <PaperPlaneRight size={28} weight="bold" color="white" />
-        </Submit>
+        <Submit 
+          type="submit" 
+          data-testid="button" 
+          isLoading={isLoading}
+        />
       </style.Todo>
 
       <AnimatePresence>
-        {errors.new?.message != undefined && <Notification content={errors.new?.message} />}
+        {errors.new?.message && <Notification content={errors.new?.message} />}
       </AnimatePresence>
 
       {data?.options.length === 0 ? <Empty /> :
-        <style.Ul>
-          <AnimatePresence>
-            {data?.options.map(it => (
-              <Options
-                key={it.id}
-                value={values}
-                onChange={(ev) => setValues(ev.currentTarget.value)}
-                submit={() => changeOpt(it.id)}
-                remove={() => remove(it.id)}
-              >
-                {it.option}
-              </Options>
-            ))}
-          </AnimatePresence>
-        </style.Ul>
+        <style.WrapperList>
+          <style.Ul>
+              {data?.options.map(it => (
+                <Options
+                  key={it.id}
+                  value={values}
+                  remove={() => remove(it.id)}
+                  submit={() => changeOpt(it.id)}
+                  onChange={(ev) => setValues(ev.currentTarget.value)}
+                >
+                  {it.option}
+                </Options>
+              ))}
+          </style.Ul>
+        </style.WrapperList>
       }
 
       {data?.options.length !== 0 && (
-        <Button onClick={() => {
-          navigator.clipboard.writeText(`http://localhost:5173/votes/${id}`)
-          setIsCliped(true)
-          setTimeout(() => {
-            setIsCliped(false)
-          }, 5000);
-        }}>
+        <Button onClick={handleCopy}>
           <Heading size="sm">Compartilhe com amigos!</Heading>
         </Button>
       )}
 
-      {isCliped && <Notification content="Link copiado!" />}
+      {isCopy && <Notification content="Link copiado!" />}
     </style.TodoPage>
   );
 }

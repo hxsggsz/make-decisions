@@ -5,7 +5,7 @@ import { mockNewOption, mockOptionUpdated, wrapper } from "../utils/mocks/hooks-
 
 describe('useNewOption hook', () => {
   it('should create an user', async () => {
-    const { result } = renderHook(() => useNewOption(), { wrapper });
+    const { result } = renderHook(() => useNewOption("1"), { wrapper });
 
     const apiGetSpy = jest.spyOn(api, 'post').mockResolvedValue({ data: mockNewOption });
     await act(async () => {
@@ -17,10 +17,10 @@ describe('useNewOption hook', () => {
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
     await waitFor(() => expect(result.current.data?.data).toBe(mockNewOption));
-    await waitFor(() => expect(apiGetSpy).toBeCalledWith('/CreateOption', { "id": "1", "option": "test" }));
+    await waitFor(() => expect(apiGetSpy).toBeCalledWith('/CreateOption/1', { "id": "1", "option": "test" }));
   });
   it('should create an user', async () => {
-    const { result } = renderHook(() => useNewOption(), { wrapper });
+    const { result } = renderHook(() => useNewOption(""), { wrapper });
 
     const apiGetSpy = jest.spyOn(api, 'post').mockRejectedValue(new Error());
 
@@ -32,9 +32,8 @@ describe('useNewOption hook', () => {
     });
 
     await waitFor(() => expect(result.current.isError).toBe(true));
-    await waitFor(() => expect(apiGetSpy).toBeCalledWith("/CreateOption", {"id": "", "option": ""}));
+    await waitFor(() => expect(apiGetSpy).toBeCalledWith("/CreateOption/", {"id": "", "option": ""}));
   });
-
 });
 
 describe('usechangeOption hook', () => {
@@ -54,7 +53,7 @@ describe('usechangeOption hook', () => {
     await waitFor(() => expect(apiGetSpy).toBeCalledWith('/ChangeUserOption', { "id": "1", "option": "test updated" }));
   });
   it('should not change the current user', async () => {
-    const { result } = renderHook(() => useNewOption(), { wrapper });
+    const { result } = renderHook(() => useNewOption("1"), { wrapper });
 
     const apiGetSpy = jest.spyOn(api, 'put').mockRejectedValue(new Error());
     await act(async () => {

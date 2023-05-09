@@ -1,14 +1,11 @@
 import { DefaulTheme, createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle<{ theme: DefaulTheme }>`
-  :root {
-    font-size: 62.5%; // 62.5% = 10px
-  }
-
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 62.5%; // 62.5% = 10px
   }
 
   body {

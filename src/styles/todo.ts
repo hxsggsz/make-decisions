@@ -12,7 +12,9 @@ export const TodoPage = styled.div`
 export const Todo = styled.form`
   display: flex;
   align-items: end;
+  justify-content: center;
   gap: 1rem;
+  width: 100%;
 `;
 
 export const Ul = styled.ul`
@@ -22,12 +24,14 @@ export const Ul = styled.ul`
   justify-content: start;
   gap: 1rem;
   width: 100%;
+  min-width: 60vw;
   max-width: 70vw;
   height: 60vh;
+  
   overflow-y: auto;
   
   @media (max-width: 768px) {
-    max-width: 100vw;
+    min-width: 90vw;
   }
   /* scrollbar */
   &::-webkit-scrollbar {
@@ -39,4 +43,10 @@ export const Ul = styled.ul`
   background: ${({ theme }) => theme.Text};
     border-radius: 2px;
   }
+`;
+
+export const WrapperList = styled.div`
+  border-radius: 1.2rem;
+  overflow: hidden;
+  margin-bottom: 7rem;
 `;
