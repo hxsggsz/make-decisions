@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledButton = styled.div`
   position: absolute;
-  bottom: 0;
+  bottom: 1rem;
 
   .button {
     cursor: pointer;
