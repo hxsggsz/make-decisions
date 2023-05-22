@@ -13,7 +13,7 @@
     <a href="#acesso-ao-projeto">📂 acesso ao projeto</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     <a href="#autor">👦🏻 Autor</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 </p>
-</div>
+
 <div align="center">
 <img src="http://img.shields.io/static/v1?label=STATUS&message=Concluido&color=GREEN&style=for-the-badge"/>
 </div>
@@ -72,3 +72,4 @@ with ❤️
  Victor Hugo
 </a>
 </p>
+</div>
