@@ -1,16 +1,16 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { Options } from "./options";
 import UserEvent from "@testing-library/user-event"
 import { render, screen, waitFor } from "@testing-library/react"
 
 describe("Options", () => {
   it("renders the children", () => {
-    const children = <div>Children</div>;
-    render(<Options children={children} submit={() => {}} remove={() => {}} />);
+    render(<Options submit={() => { } } remove={() => { } } text="Children" />);
     expect(screen.getByText("Children")).toBeInTheDocument();
   });
   
   it("renders an input when click on pencil", async () => {
-    render(<Options children={"teste"} submit={() => {}} remove={() => {}}/>);
+    render(<Options submit={() => { } } remove={() => { } } text="Children" />);
 
     UserEvent.click(screen.getByTestId("pencil"))
     await waitFor(() => expect(screen.getByTestId("input")).toBeInTheDocument());
@@ -18,7 +18,7 @@ describe("Options", () => {
    
   it("calls submit when submit button is clicked", async () => {
     const submitMock = jest.fn();
-    render(<Options children={"teste"} remove={() => {}} submit={submitMock} />);
+    render(<Options remove={() => { } } submit={submitMock} text="Children" />);
 
     UserEvent.click(screen.getByTestId("pencil"))
     await waitFor(() => expect(screen.getByTestId(/submit/i)).toBeInTheDocument());
@@ -28,7 +28,7 @@ describe("Options", () => {
   
   it("calls remove when X button is clicked", async () => {
     const removeMock = jest.fn();
-    render(<Options children="teste" submit={() => {}} remove={removeMock} />);
+    render(<Options submit={() => { } } remove={removeMock} text="Children" />);
       
     UserEvent.click(screen.getByTestId("pencil"))
     await waitFor(() => expect(screen.getByTestId(/close/i)).toBeInTheDocument());

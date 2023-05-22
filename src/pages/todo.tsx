@@ -58,7 +58,7 @@ export const Todo = () => {
 
   const handleCopy = () => {
     // id da URL
-    navigator.clipboard.writeText(`http://localhost:5173/votes/${id}`)
+    navigator.clipboard.writeText(`https://make-decisions.netlify.app/votes/${id}`)
     setIsCopy(true)
     setTimeout(() => {
       setIsCopy(false)
