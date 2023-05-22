@@ -6,7 +6,7 @@
   Confira aqui! https://make-decisions.netlify.app/
   
   <p align="center">
-<a href="#descricao-do-projeto">✏ Descrição do projeto</a>
+<a href="#descricao-do-projeto">Descrição do projeto</a>
 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#feito-com">👷🏻‍♂️ Feito com</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
  <a href="#funcionalidades-do-projeto">🔨 Funcionalidades do projeto</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
