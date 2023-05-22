@@ -4,6 +4,8 @@
 </a>
   
   Confira aqui! https://make-decisions.netlify.app/
+  Confira o repositório da API utilizada: https://github.com/hxsggsz/make-decisions-api
+  Confira o protótipo do Figma: https://www.figma.com/file/8psHYsI3iohPy1XPclP7E4/make-decisions?type=design&node-id=0-1&t=C00T1zVL8JfNu8cl-0
   
   <p align="center">
 <a href="#descricao-do-projeto">✏ Descrição do projeto</a>
@@ -26,7 +28,7 @@ Um site para tomar decisões em grupo. Liste todas as opções e mande para seus
   
 <h1 id="feito-com"> 👷🏻‍♂️ Feito com<h1>
 
- [![My Skills](https://skillicons.dev/icons?i=react,ts,vite,styledcomponents,nodejs&perline=3)](https://skillicons.dev)<br>
+ [![My Skills](https://skillicons.dev/icons?i=react,ts,vite,styledcomponents,nodejs,nestjs,jest,figma&perline=4)](https://skillicons.dev)<br>
  <img align="center" alt="Javascript" height="60" width="60" src="https://vectorwiki.com/images/Skj0l__react-query-icon.svg">
 
  <h1 id="funcionalidades-do-projeto"> 🔨 Funcionalidades do projeto<h1>
