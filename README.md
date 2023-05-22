@@ -3,9 +3,7 @@
   <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/103784814/240048926-c493f81d-caa3-4731-8a91-191321704a9d.png"/>
 </a>
   
-  Confira aqui! https://make-decisions.netlify.app/
-  Confira o repositório da API utilizada: https://github.com/hxsggsz/make-decisions-api
-  Confira o protótipo do Figma: https://www.figma.com/file/8psHYsI3iohPy1XPclP7E4/make-decisions?type=design&node-id=0-1&t=C00T1zVL8JfNu8cl-0
+  
   
   <p align="center">
 <a href="#descricao-do-projeto">✏ Descrição do projeto</a>
@@ -19,6 +17,10 @@
 <div align="center">
 <img src="http://img.shields.io/static/v1?label=STATUS&message=Concluido&color=GREEN&style=for-the-badge"/>
 </div>
+  
+  <a href="https://make-decisions.netlify.app/" target="_blank">Confira aqui o site no ar!</a> <br>
+  <a href="https://github.com/hxsggsz/make-decisions-api" target="_blank">Confira o repositório da API utilizada</a> <br>
+  <a href="https://www.figma.com/file/8psHYsI3iohPy1XPclP7E4/make-decisions?type=design&node-id=0-1&t=C00T1zVL8JfNu8cl-0" target="_blank">Confira o protótipo do Figma</a> 
   
 <h1 id="descricao-do-projeto"> ✏ Descrição do projeto<h1>
 
