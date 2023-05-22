@@ -18,6 +18,9 @@
 <img src="http://img.shields.io/static/v1?label=STATUS&message=Concluido&color=GREEN&style=for-the-badge"/>
 </div>
   
+  <!-- DESCRIÇÃO DO PROJETO -->
+  <!-- DESCRICAO DO PROJETO -->
+  
 ## ✏ Descrição do projeto
 
 Um site para tomar decisões em grupo. Liste todas as opções e mande para seus amigos votarem, a opção mais votada ficará em destaque.
