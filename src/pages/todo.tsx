@@ -92,13 +92,14 @@ export const Todo = () => {
         <style.WrapperList>
           <style.Ul>
             <AnimatePresence>
-              {data?.options.map(it => (
+              {data?.options.map((it, idx) => (
                 <Options
                   key={it.id}
                   value={values}
                   text={it.option}
                   remove={() => remove(it.id)}
                   submit={() => changeOpt(it.id)}
+                  placeholder={data.options[idx].option}
                   onChange={(ev) => setValues(ev.currentTarget.value)}
                 />
               ))}
